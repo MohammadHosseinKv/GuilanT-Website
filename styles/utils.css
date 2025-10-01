@@ -1,0 +1,148 @@
+/* xs */
+/* @media (min-width: 475px) {
+
+} */
+
+/* sm */
+/* @media (min-width: 640px) {
+
+} */
+
+/* md */
+/* @media (min-width: 768px) {
+
+} */
+
+/* lg */
+/* @media (min-width: 1024px) {
+
+} */
+
+/* xl */
+/* @media (min-width: 1280px) {
+
+} */
+
+/* 2xl */
+/* @media (min-width: 1536px) {
+
+} */
+
+.btn {
+    display: inline-block;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: -0.05em;
+    background-color: var(--tea-green);
+    color: var(--light);
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    -webkit-box-shadow: 0px 0px 12px 2px rgba(49, 129, 83, 0.5);
+    box-shadow: 0px 0px 12px 2px rgba(49, 129, 83, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    -webkit-box-shadow: 0px 0px 20px 2px rgba(49, 129, 83, 0.25);
+    box-shadow: 0px 0px 20px 2px rgba(49, 129, 83, 0.25);
+}
+
+.custom-btn-1 {
+    display: inline-block;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: -0.05em;
+    background-color: rgb(49 129 83 / 80%);
+    color: var(--light);
+    padding: 0.5em 1em;
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: calc(0.5rem - 2px);
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, transform;
+    transition-duration: 0.15s;
+    cursor: pointer;
+}
+
+.custom-btn-1:hover{
+    background-color: rgb(49 129 83 / 100%);
+    transform: translateY(-2px);
+}
+
+.custom-btn-1:active{
+    background-color: var(--light);
+    border-color: var(--tea-green);
+    color: var(--tea-green);
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 1px solid red;
+}
+
+.section {
+    margin-top: 5rem;
+}
+
+.hidden {
+    opacity: 0;
+    display: none;
+}
+
+/* xs */
+@media (min-width: 475px) {
+    .container {
+        max-width: 475px;
+    }
+}
+
+/* sm */
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+/* md */
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+
+    .section {
+        margin-top: 10rem;
+    }
+}
+
+/* xl */
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+
+    .section {
+        margin-top: 10rem;
+    }
+}
+
+/* 2xl */
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1536px;
+    }
+
+    .section {
+        margin-top: 10rem;
+    }
+}

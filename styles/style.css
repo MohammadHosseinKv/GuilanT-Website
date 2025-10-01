@@ -1,0 +1,211 @@
+:root {
+    --background: #f8f8f6;
+    --foreground: #ffffff;
+    --foreground-2: #30251d;
+    --tea-green: #318153;
+    --tea-green-light: #64b486;
+    --tea-green-dark: #1d633a;
+    --tea-gold: #eebd2b;
+    --tea-gold-light: #e9c763;
+    --tea-gold-dark: #e0a906;
+    --tea-brown: #563c29;
+    --tea-brown-light: #8f6e56;
+    --light: #ffffff;
+    --dark: #000000;
+
+    /* shadows */
+    --shadow-soft: 0 4px 20px rgb(49 129 83 / 15%);
+    --shadow-medium: 0 8px 30px rgb(49 129 83 / 20%);
+    --shadow-strong: 0 12px 40px rgb(49 129 83 / 25%);
+
+    /* gradients */
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(45 20% 98%) 100%);
+
+    /* sizes */
+    --size-xxs: 0.5rem;
+    --size-xs: 0.75rem;
+    --size-sm: 0.875rem;
+    --size-base: 1rem;
+    --size-lg: 1.125rem;
+    --size-xl: 1.25rem;
+    --size-2xl: 1.5rem;
+    --size-3xl: 1.875rem;
+    --size-4xl: 2.25rem;
+    --size-5xl: 3rem;
+    --size-6xl: 3.75rem;
+    --size-7xl: 4.5rem;
+    --size-8xl: 6rem;
+    --size-9xl: 8rem;
+    --size-10xl: 10rem;
+
+    --header-h: 75px;
+
+    /* urls */
+    --bg-url: url('/tea-plantation-bg.jpg');
+}
+
+* {
+    margin: 0;
+    /* padding: 0; */
+    line-height: calc(1em + 0.5rem);
+}
+
+html {
+    scroll-behavior: smooth;
+
+}
+
+body {
+    font-family: "Vazirmatn", sans-serif;
+    height: 5000px;
+    color: var(--foreground);
+    /* padding-top: var(--header-h); */
+}
+
+.bg {
+    position: fixed;
+    inset: 0;
+    /* top:0; right:0; bottom:0; left:0 */
+    z-index: -1;
+    /* behind normal content */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), var(--bg-url);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* pointer-events none ensures clicks go through to page content */
+    pointer-events: none;
+}
+
+[id] {
+    scroll-margin-top: var(--header-h);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    user-select: none;
+}
+
+button {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+a {
+    color: var(--tea-green);
+}
+
+strong {
+    color: var(--tea-gold-dark);
+}
+
+.scroll-top {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 3rem;
+    height: 3rem;
+    z-index: 25;
+    position: fixed;
+    left: 1px;
+    bottom: 1px;
+    background: rgb(49 129 83 / 80%);
+    color: var(--light);
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: 9999px;
+
+    /* animation */
+    opacity: 0;
+    transform: translateY(12px) scale(.98);
+    transition: opacity .24s ease, transform .24s cubic-bezier(.2, .9, .3, 1);
+    pointer-events: none;
+    /* no clicks/hover while hidden */
+}
+
+.scroll-top:hover {
+    background: rgb(49 129 83 / 100%);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.scroll-top>svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.scroll-top:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.15);
+    outline-offset: 3px;
+}
+
+/* hidden scrollbar for modals */
+.with-scroll-bars-hidden {
+    overflow: hidden !important;
+    padding-right: 0px !important;
+}
+
+body[data-scroll-locked] {
+    overflow: hidden !important;
+    overscroll-behavior: contain;
+    position: relative !important;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    margin-left: 0;
+    margin-top: 0;
+    margin-right: 0px !important;
+
+}
+
+.right-scroll-bar-position {
+    right: 0px !important;
+}
+
+.width-before-scroll-bar {
+    margin-right: 0px !important;
+}
+
+.right-scroll-bar-position .right-scroll-bar-position {
+    right: 0 !important;
+}
+
+.width-before-scroll-bar .width-before-scroll-bar {
+    margin-right: 0 !important;
+}
+
+body[data-scroll-locked] {
+    --removed-body-scroll-bar-size: 0px;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-top {
+        transition: none;
+        transform: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .scroll-top {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .scroll-top>svg {
+        width: 2rem;
+        height: 2rem;
+    }
+}

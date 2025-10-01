@@ -1,0 +1,133 @@
+.hero {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+}
+
+.hero__subtitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 0px solid rgb(226, 232, 240);
+    background: rgb(255 255 255 / 20%);
+    padding: 0.5rem 1.5rem;
+}
+
+.hero__subtitle__svg {
+    color: rgb(253 224 71);
+    fill: currentColor;
+    width: var(--size-2xl);
+    height: var(--size-2xl);
+}
+
+.hero__subtitle__text {
+    font-size: var(--size-base);
+}
+
+.hero__title {
+    font-size: var(--size-6xl);
+    font-weight: 500;
+}
+
+.hero__title__span {
+    color: var(--tea-gold);
+}
+
+.hero__description {
+    max-width: 70ch;
+    font-size: var(--size-xl);
+}
+
+.hero__cta {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-base);
+}
+
+.hero__btn {
+    font-size: var(--size-base);
+}
+
+.hero__btn svg {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    width: var(--size-xl);
+    height: var(--size-xl);
+}
+
+.hero__items {
+    display: grid;
+    gap: var(--size-4xl);
+    /* gap: 1px; */
+    color: rgb(255 255 255 / 80%);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    width: 100%;
+    margin-top: var(--size-xl);
+}
+
+.hero__items__item {
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid rgb(255 255 255 / 30%);
+    background: rgba(255, 255, 255, 0.25);
+    padding: 0.5em 1em;
+    transition: 0.5s ease-out;
+}
+
+.hero__items__item:hover {
+    background: rgb(0 0 0 / 40%);
+}
+
+.hero__items__item__top {
+    font-weight: 700;
+    font-size: var(--size-3xl);
+}
+
+.hero__items__item__bottom {
+    font-size: var(--size-sm);
+
+}
+
+
+/* xs */
+/* @media (min-width: 475px) {
+
+} */
+
+/* sm */
+/* @media (min-width: 640px) {
+
+} */
+
+/* md */
+@media (min-width: 768px) {
+    .hero__items {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* lg */
+/* @media (min-width: 1024px) {
+
+} */
+
+/* xl */
+/* @media (min-width: 1280px) {
+
+} */
+
+/* 2xl */
+/* @media (min-width: 1536px) {
+
+} */
