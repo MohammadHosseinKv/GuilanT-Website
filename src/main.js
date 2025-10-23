@@ -15,12 +15,10 @@ import { generateProducts, loadProducts, refreshProducts } from './products';
 import { generateContacts, loadContacts, refreshContacts } from './contacts';
 import { initializeForm } from './form';
 import { initializeMobileNavbar } from './mobileNav';
-import { initializeTheme } from './themeController';
 
 const scrollToTopBtn = document.querySelector('.scroll-top');
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // initializeTheme();
   initializeScrollToTop();
   initializeMobileNavbar();
   await loadProducts();
