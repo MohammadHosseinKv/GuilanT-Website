@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="IR-fa" dir="rtl">
+<html lang="fa-IR" dir="rtl">
 
 <head>
   <meta charset="UTF-8" />
@@ -7,23 +7,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@33.003/misc/Farsi-Digits/Vazirmatn-FD-font-face.css"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles/modern-normalize.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/components/header.css">
+  <link rel="stylesheet" href="/styles/components/hero.css">
+  <link rel="stylesheet" href="/styles/components/mobile-nav.css">
+  <link rel="stylesheet" href="/styles/components/modal.css">
+  <link rel="stylesheet" href="/styles/utils.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tea-shop-site</title>
 </head>
 
 <body>
-  <div class="bg" aria-hidden="true"></div>
   <header class="container header">
     <div class="header__logo">
-      <img src="/logo.png" alt="لوگو">
+      <img src="/logo.png" alt="لوگو" width="150" height="auto">
     </div>
-    <nav>
+    <nav class="header__nav">
       <ul class="header__menu">
         <li>
           <a class="header__link" href="#home">خانه</a>
-        </li>
-        <li>
-          <a class="header__link" href="#whyus">چرا ما؟</a>
         </li>
         <li>
           <a class="header__link" href="#products">محصولات</a>
@@ -32,40 +37,62 @@
           <a class="header__link" href="#about">درباره ما</a>
         </li>
         <li>
+          <a class="header__link" href="#whyus">چرا ما؟</a>
+        </li>
+        <li>
           <a class="header__link" href="#contact">تماس با ما</a>
         </li>
       </ul>
     </nav>
-    <div class="header__socials">
-      <button class="btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path
-            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-        </svg>
-      </button>
-      <button class="btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path
-            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09" />
-        </svg>
-      </button>
-      <button class="btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path
-            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
-        </svg>
-      </button>
+    <div class="header__items">
+      <div class="theme-toggle__label-row">
+        <label for="theme-checkbox" class="theme-toggle" role="switch" aria-hidden="false">
+          <input type="checkbox" id="theme-checkbox" aria-label="Toggle light / dark theme">
+        </label>
+      </div>
+      <div class="header__socials">
+      </div>
     </div>
-    <button class="header__bars">
+
+    <button class="header__bars" aria-label="open sidebar" aria-expanded="false" aria-controls="mobile-nav__menu">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
         <path fill-rule="evenodd"
           d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
           clip-rule="evenodd" />
       </svg>
     </button>
-
   </header>
-  <main>
+
+  <div id="mobile-nav__menu" class="mobile-nav__menu">
+    <nav>
+      <ul>
+        <li>
+          <button class="close-sidebar" data-mobile-nav-close aria-label="close sidebar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
+        </li>
+        <li><a class="mobile-nav__link" href="#home" data-mobile-nav-close>خانه</a></li>
+        <li><a class="mobile-nav__link" href="#products" data-mobile-nav-close>محصولات ما</a></li>
+        <li><a class="mobile-nav__link" href="#about" data-mobile-nav-close>درباره ما</a></li>
+        <li><a class="mobile-nav__link" href="#whyus" data-mobile-nav-close>چرا ما؟</a></li>
+        <li><a class="mobile-nav__link" href="#contact" data-mobile-nav-close>تماس با ما</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-nav__socials">
+    </div>
+    <div class="theme-toggle__label-row">
+      <label for="mobile-nav__theme-checkbox" class="theme-toggle" role="switch" aria-hidden="false">
+        <input type="checkbox" id="mobile-nav__theme-checkbox" aria-label="Toggle light / dark theme">
+      </label>
+    </div>
+  </div>
+  <div class="mobile-nav__overlay" data-mobile-nav-close aria-hidden="true"></div>
+
+  <main class="main-content">
     <section id="home" class="hero container">
       <div class="hero__subtitle">
         <svg class="hero__subtitle__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -125,6 +152,218 @@
         <path d="m17 18-5-5-5 5" />
       </svg>
     </a>
+    <section id="products" class="products-section container section">
+      <div>
+        <h2 class="products__description__title">محصولات ما</h2>
+        <p class="products__description__subtitle">مجموعه ای از چای ‌های اصیل و با کیفیت برای عرضه در فروشگاه‌ های شما
+        </p>
+      </div>
+      <div class="product__items">
+    </section>
+    <section id="about" class="about-section container section">
+      <div>
+        <h2 class="about__title">
+          <div class="about__title__superscript">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
+              <path d="M20 2v4" />
+              <path d="M22 4h-4" />
+              <circle cx="4" cy="20" r="2" />
+            </svg>
+            داستان ما
+          </div>
+          درباره ما
+        </h2>
+        <p class="about__subtitle">ما با عشق به چای ایرانی، سفر خود را آغاز کردیم.</p>
+      </div>
+      <div class="about__grid">
+        <div class="about__grid__sec-1">
+          <div class="about__grid__sec-1__feats">
+            <div class="about__grid__sec-1__feature">
+              <div class="about__grid__sec-1__feature__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 2v2" />
+                  <path d="M14 2v2" />
+                  <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" />
+                  <path d="M6 2v2" />
+                </svg>
+              </div>
+              <div class="about__grid__sec-1__feature__desc">
+                <h3 class="about__grid__sec-1__feature__desc__title">چرا چای؟</h3>
+                <p class="about__grid__sec-1__feature__desc__subtitle">
+                  چای بیش از یک نوشیدنی است - این فرهنگ، سنت و گرمای خانواده است. ما با این باور شروع کردیم که هر
+                  خانواده‌ای لایق بهترین چای است.
+                </p>
+              </div>
+            </div>
+            <div class="about__grid__sec-1__feature">
+              <div class="about__grid__sec-1__feature__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3" />
+                  <path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4" />
+                  <path d="M5 21h14" />
+                </svg>
+              </div>
+              <div class="about__grid__sec-1__feature__desc">
+                <h3 class="about__grid__sec-1__feature__desc__title">از مزرعه تا قفسه</h3>
+                <p class="about__grid__sec-1__feature__desc__subtitle">
+                  ما چای‌ها را مستقیم از مزارع شمال تهیه می‌کنیم و با کشاورزان محلی همکاری می‌کنیم تا برگ‌های مناسب برای
+                  بسته‌بندی تجاری را انتخاب کنیم. ساده، شفاف و بدون ادعاهای اغراق‌آمیز.
+                </p>
+              </div>
+            </div>
+            <div class="about__grid__sec-1__feature">
+              <div class="about__grid__sec-1__feature__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m16 16 2 2 4-4" />
+                  <path
+                    d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14" />
+                  <path d="m7.5 4.27 9 5.15" />
+                  <polyline points="3.29 7 12 12 20.71 7" />
+                  <line x1="12" x2="12" y1="22" y2="12" />
+                </svg>
+              </div>
+              <div class="about__grid__sec-1__feature__desc">
+                <h3 class="about__grid__sec-1__feature__desc__title">بسته‌بندی هدفمند</h3>
+                <p class="about__grid__sec-1__feature__desc__subtitle">
+                  بسته‌ها را برای فروش در سوپرمارکت‌ها و هایپرمارکت‌ها آماده می‌کنیم: وزن‌های مشخص، برچسب ساده و
+                  بسته‌بندی که طعم را حفظ کند، کاری که ما به آن متعهدیم.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="about__grid__sec-1__ourmission">
+            <h3 class="about__grid__sec-1__ourmission__title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
+                <circle cx="12" cy="8" r="6" />
+              </svg>
+              ماموریت ما
+            </h3>
+            <p class="about__grid__sec-1__ourmission__subtitle">
+              به مشتریان عزیز در سوپرمارکت‌ها و هایپرمارکت‌ها، دسترسی آسان به چای‌های با کیفیت و اصیل ایرانی را فراهم
+              کنیم.
+            </p>
+          </div>
+        </div>
+        <div class="about__grid__sec-2">
+          <div class="about__grid__sec-2__feats">
+            <div class="about__grid__sec-2__feature">
+              <div class="about__grid__sec-2__feature__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                </svg>
+              </div>
+              <h3>100%</h3>
+              <p>طبیعی و اصیل</p>
+            </div>
+            <div class="about__grid__sec-2__feature">
+              <div class="about__grid__sec-2__feature__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m10 11 11 .9a1 1 0 0 1 .8 1.1l-.665 4.158a1 1 0 0 1-.988.842H20" />
+                  <path d="M16 18h-5" />
+                  <path d="M18 5a1 1 0 0 0-1 1v5.573" />
+                  <path d="M3 4h8.129a1 1 0 0 1 .99.863L13 11.246" />
+                  <path d="M4 11V4" />
+                  <path d="M7 15h.01" />
+                  <path d="M8 10.1V4" />
+                  <circle cx="18" cy="18" r="2" />
+                  <circle cx="7" cy="15" r="5" />
+                </svg>
+              </div>
+              <h3>تازگی</h3>
+              <p>مستقیم از مزارع</p>
+            </div>
+            <div class="about__grid__sec-2__feature">
+              <div class="about__grid__sec-2__feature__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 2v4" />
+                  <path d="M16 2v4" />
+                  <path d="M21 14V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8" />
+                  <path d="M3 10h18" />
+                  <path d="m16 20 2 2 4-4" />
+                </svg>
+              </div>
+              <h3>1404</h3>
+              <p>شروع سفر</p>
+            </div>
+            <div class="about__grid__sec-2__feature">
+              <div class="about__grid__sec-2__feature__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <h3>رو به رشد</h3>
+              <p>مسیر پیش رو</p>
+            </div>
+          </div>
+          <div class="about__promise">
+            <h3>ما شاید تازه شروع کرده باشیم، اما عشق به چای و تعهد به کیفیت در قلب کار ماست.</h3>
+          </div>
+          <div class="about__grid__prospect">
+            <h3 class="about__grid__prospect__title">
+              <svg class="sparkle-animation animation" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
+                <path d="M20 2v4" />
+                <path d="M22 4h-4" />
+                <circle cx="4" cy="20" r="2" />
+              </svg>
+              چشم‌انداز آینده
+            </h3>
+            <p></p>
+            <div class="about__grid__prospect__grid">
+              <div class="about__grid__prospect__target">
+                <svg class="fadeInOut-animation animation" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+                گسترش تنوع محصولات
+              </div>
+              <div class="about__grid__prospect__target">
+                <svg class="fadeInOut-animation animation" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+                ارتقای کیفیت بسته‌بندی
+              </div>
+              <div class="about__grid__prospect__target">
+                <svg class="fadeInOut-animation animation" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+                افزایش حضور در سطح کشور
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
     <section id="whyus" class="whyus container section">
       <div class="whyus__description">
         <h2 class="whyus__description__title">چرا ما را انتخاب کنید؟</h2>
@@ -133,8 +372,9 @@
       <div class="whyus__items">
         <div class="whyus__items__item">
           <div class="whyus__items__item__img">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="fadeInOut-animation animation" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
               <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
               <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
             </svg>
@@ -147,8 +387,9 @@
         </div>
         <div class="whyus__items__item">
           <div class="whyus__items__item__img">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="fadeInOut-animation animation" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
               <path
                 d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
               <path d="m9 12 2 2 4-4" />
@@ -162,8 +403,9 @@
         </div>
         <div class="whyus__items__item">
           <div class="whyus__items__item__img">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="fadeInOut-animation animation" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
               <path
                 d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3" />
               <path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4" />
@@ -176,8 +418,9 @@
         </div>
         <div class="whyus__items__item">
           <div class="whyus__items__item__img">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="fadeInOut-animation animation" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
               <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
               <path d="M15 18H9"></path>
               <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
@@ -191,8 +434,9 @@
         </div>
         <div class="whyus__items__item">
           <div class="whyus__items__item__img">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="fadeInOut-animation animation" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
               <path
                 d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
               <path d="m3.3 7 8.7 5 8.7-5" />
@@ -205,8 +449,9 @@
         </div>
         <div class="whyus__items__item">
           <div class="whyus__items__item__img">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="fadeInOut-animation animation" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
               <circle cx="9" cy="7" r="4"></circle>
               <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -218,55 +463,315 @@
         </div>
       </div>
     </section>
-    <section id="products" class="products-section container section">
-      <div>
-        <h2 class="products__description__title">محصولات ما</h2>
-        <p class="products__description__subtitle">مجموعه ای از چای ‌های اصیل و با کیفیت برای عرضه در فروشگاه‌ های شما
-        </p>
+    <section id="contact" class="contact-section container section">
+      <div class="contact__desc">
+        <h2 class="contact__title">تماس با ما</h2>
+        <p class="contact__subtitle">برای سفارش محصولات و دریافت اطلاعات بیشتر، از طریق روش‌ های زیر با ما در تماس
+          باشید.</p>
       </div>
-      <div class="products__items">
-         <!-- <div class="products__items__item">
-          <div class="products__items__item__img">
-            <img src="/Tea.jpg" alt="tea">
-            <div class="products__items__item__img__label">چای سبز</div>
-          </div>
-          <div class="products__items__item__info">
-            <h3 class="products__items__item__info__title">چای سبز ممتاز</h3>
-            <p class="products__items__item__info__description">چای سبز درجه یک با طعمی غنی و عطری بی‌نظیر، مخصوص عرضه
-              در سوپرمارکت‌ها</p>
-            <div class="products__items__item__info__characteristics">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z">
-                </path>
-                <path d="M12 22V12"></path>
-                <path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"></path>
-                <path d="m7.5 4.27 9 5.15"></path>
-              </svg>
-              <span class="products__items__item__info__characteristics__part">500 گرم</span>
+      <div class="contact__grid">
+        <div class="contact__sec-1">
+          <div class="contact__info">
+            <div class="contact__info__title">
+              <h3>اطلاعات تماس</h3>
+              <p>برای تماس یا انتقال به صفحات ما در قسمت زیر روی بخش مربوط به آن کلیک کنید.</p>
             </div>
-            <button class="products__items__item__info__cta-details custom-btn-1">
+            <div class="contact__info__items">
+              <!-- <div class="contact__info__item">
+                <div class="contact__info__item__img">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+                  </svg>
+                </div>
+                <div class="contact__info__item__desc">
+                  <h4 class="contact__info__item__desc__title">تلفن مستقیم</h4>
+                  <p class="contact__info__item__desc__subtitle" dir="ltr">+98 9123456789</p>
+                </div>
+              </div>
+              <div class="contact__info__item">
+                <div class="contact__info__item__img">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                  </svg>
+                </div>
+                <div class="contact__info__item__desc">
+                  <h4 class="contact__info__item__desc__title">ایمیل</h4>
+                  <p class="contact__info__item__desc__subtitle">info.teabusiness@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact__info__item">
+                <div class="contact__info__item__img">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                  </svg>
+                </div>
+                <div class="contact__info__item__desc">
+                  <h4 class="contact__info__item__desc__title">اینستاگرام</h4>
+                  <p class="contact__info__item__desc__subtitle" dir="ltr">@teabusiness</p>
+                </div>
+              </div>
+              <div class="contact__info__item">
+                <div class="contact__info__item__img">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09" />
+                  </svg>
+                </div>
+                <div class="contact__info__item__desc">
+                  <h4 class="contact__info__item__desc__title">تلگرام</h4>
+                  <p class="contact__info__item__desc__subtitle" dir="ltr">@teabusiness</p>
+                </div>
+              </div>
+              <div class="contact__info__item">
+                <div class="contact__info__item__img">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div class="contact__info__item__desc">
+                  <h4 class="contact__info__item__desc__title">آدرس</h4>
+                  <p class="contact__info__item__desc__subtitle">گیلان، رشت، خیابان x، پلاک y</p>
+                </div>
+              </div>
+              <div class="contact__info__item">
+                <div class="contact__info__item__img">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 6v6l4 2" />
+                    <circle cx="12" cy="12" r="10" />
+                  </svg>
+                </div>
+                <div class="contact__info__item__desc">
+                  <h4 class="contact__info__item__desc__title">ساعات کاری</h4>
+                  <p class="contact__info__item__desc__subtitle">شنبه تا پنج‌شنبه: 08:00 - 16:00</p>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="contact__sec-2">
+          <h3 class="contact__form__title">فرم سفارش</h3>
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+          <form class="contact__form" id="orderForm" method="POST"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScY9MnGScOiZWC-BgVd0UUPH_HgwjIzrYApyao-QlWyr8R75Q/formResponse"
+            target="hidden_iframe" novalidate>
+            <div class="contact__form__item">
+              <label class="contact__form__item__label">
+                <span>نام فروشگاه / شرکت</span>
+                <input name="entry.2033700216" type="text" required aria-required="true"
+                  placeholder="نام فروشگاه خود را وارد کنید">
+                <div class="field-error" aria-live="polite"></div>
+              </label>
+            </div>
+            <div class="contact__form__item">
+              <label class="contact__form__item__label">
+                <span>شماره تماس (برای تلفن ثابت کد شهر نیز ذکر شود)</span>
+                <input name="entry.68392148" type="tel" required aria-required="true"
+                  placeholder="0911... / 911... / +98 911... / 013 33111111 " dir="ltr">
+                <div class="field-error" aria-live="polite"></div>
+              </label>
+            </div>
+            <div class="contact__form__item">
+              <label class="contact__form__item__label">
+                <span>محصولات مورد نظر</span>
+
+                <textarea name="entry.1952081265" required aria-required="true"
+                  placeholder="لطفا محصولات و مقدار مورد نظر خود را ذکر کنید"></textarea>
+                <div class="field-error" aria-live="polite"></div>
+              </label>
+            </div>
+            <div class="contact__form__item">
+              <label class="contact__form__item__label">
+                <span>آدرس فروشگاه</span>
+                <textarea name="entry.1217595251" required aria-required="true"
+                  placeholder="آدرس کامل فروشگاه برای ارسال"></textarea>
+                <div class="field-error" aria-live="polite"></div>
+              </label>
+            </div>
+            <div class="contact__form__item">
+              <label class="contact__form__item__label">
+                <span>توضیحات تکمیلی (اختیاری)</span>
+                <textarea name="entry.422124854" aria-required="false"
+                  placeholder="توضیحات تکمیلی شما درباره سفارش"></textarea>
+                <div class="field-error" aria-live="polite"></div>
+              </label>
+            </div>
+            <label style="display:none">
+              <!-- Honeypot to help block spam bots -->
+              <input name="hidden_hp" />
+            </label>
+            <button type="submit" class="contact__form__submit custom-btn-1">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0">
-                </path>
-                <circle cx="12" cy="12" r="3"></circle>
+                <rect width="18" height="14" x="3" y="5" rx="2" ry="2" />
+                <path d="M7 15h4M15 15h2M7 11h2M13 11h4" />
               </svg>
-              مشاهده جزئیات
-            </button> 
-          </div> -->
+              ارسال درخواست سفارش
+            </button>
+          </form>
+          <div class="contact__announce">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m16 8 6-6" />
+              <path d="M22 8V2h-6" />
+              <path
+                d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+            </svg>
+            <p>پس از ارسال فرم، در ظرف 24 ساعت با شما تماس خواهیم گرفت.</p>
+          </div>
         </div>
-
       </div>
     </section>
-    <!-- <section></section> -->
-    <!-- <section></section> -->
   </main>
-  <!-- <footer></footer> -->
+  <div class="footer-sentinel" style="height: 1px; width: 1px; overflow: hidden;" aria-hidden="true" inert></div>
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__logo">
+        <img src="/logo.png" alt="لوگو">
+        <p>تولیدکننده و توزیع‌کننده چای‌ های اصیل و باکیفیت برای سوپرمارکت‌ها و هایپرمارکت‌ها</p>
+        <div class="footer__subtitle">
+          <p>هر فنجان چای ما، داستانی از <strong>اصالت</strong>، <strong>کیفیت</strong> و <strong>اعتماد</strong> است.
+          </p>
+          <p class="footer__subtitle__important">اعتماد شما افتخار ماست.</p>
+        </div>
+      </div>
+      <div class="footer__links">
+        <h3>دسترسی سریع</h3>
+        <nav>
+          <ul class="footer__menu">
+            <li>
+              <a class="footer__link" href="#home">خانه</a>
+            </li>
+            <li>
+              <a class="footer__link" href="#products">محصولات</a>
+            </li>
+            <li>
+              <a class="footer__link" href="#about">درباره ما</a>
+            </li>
+            <li>
+              <a class="footer__link" href="#whyus">چرا ما؟</a>
+            </li>
+            <li>
+              <a class="footer__link" href="#contact">تماس با ما</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer__contacts">
+        <h3>اطلاعات تماس</h3>
+        <div class="footer__contact__items">
+        </div>
+      </div>
+      <div class="footer__licenses">
+        <h3 class="footer__licenses__title">مجوز های مجموعه</h3>
+        <div class="footer__license__items">
+          <div class="footer__license__item">
+            <img
+              src="https://www.placeholderimage.online/placeholder/420/310/f3f4f6/1f2937?text=Placeholder&font=Lato.svg"
+              alt="Enamad-placeholder">
+          </div>
+          <div class="footer__license__item">
+            <img
+              src="https://www.placeholderimage.online/placeholder/420/310/f3f4f6/1f2937?text=Placeholder&font=Lato.svg"
+              alt="Enamad-placeholder">
+          </div>
+          <div class="footer__license__item">
+            <img
+              src="https://www.placeholderimage.online/placeholder/420/310/f3f4f6/1f2937?text=Placeholder&font=Lato.svg"
+              alt="Enamad-placeholder">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>1404 © ‌تمامی حقوق برای وبسایت چای‌پَک محفوظ است.</span>
+      <div class="footer__social__items">
+      </div>
+    </div>
+  </footer>
+  <div id="product-modal" class="custom-modal" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="product-modal-title" inert>
+    <div class="custom-modal__backdrop" data-modal-backdrop></div>
+    <div class="custom-modal__content" role="document" tabindex="-1">
+    </div>
+  </div>
+  <div class="fullscreen-modal" id="fullscreenModal" role="document" tabindex="-1" inert>
+    <div class="fullscreen-slider">
+      <button class="fullscreen-close" id="fullscreenClose">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+      <div class="fullscreen-slides-container">
+        <div class="fullscreen-slide-track" id="fullscreenSlideTrack">
+          <!-- Fullscreen slides will be generated by JavaScript -->
+        </div>
+        <button class="fullscreen-prev">&#10094;</button>
+        <button class="fullscreen-next">&#10095;</button>
+      </div>
+
+      <div class="fullscreen-nav" id="fullscreenNav">
+        <!-- Fullscreen navigation items will be generated by JavaScript -->
+      </div>
+    </div>
+  </div>
+  <div id="toaster" class="toaster" aria-live="polite" aria-atomic="false"></div>
+  <script defer>
+    (function () {
+      const html = document.documentElement;
+      const checkbox = document.getElementById('theme-checkbox');
+      const mobileNavCheckbox = document.getElementById('mobile-nav__theme-checkbox');
+
+      function applyTheme(theme) {
+        const isDark = theme === 'dark';
+
+        html.setAttribute('data-theme', theme);
+        if (checkbox) {
+          checkbox.checked = isDark;
+          checkbox.setAttribute('aria-checked', String(isDark));
+        }
+
+        if (mobileNavCheckbox) {
+          mobileNavCheckbox.checked = isDark;
+          mobileNavCheckbox.setAttribute('aria-checked', String(isDark));
+        }
+      }
+
+      // load saved theme or prefered
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = saved || (prefersDark ? 'dark' : 'light');
+      applyTheme(initial);
+
+      checkbox.addEventListener('change', (e) => {
+        const newTheme = e.target.checked ? 'dark' : 'light';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+
+      mobileNavCheckbox.addEventListener('change', e => {
+        const newTheme = e.target.checked ? 'dark' : 'light';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+
+      window.setTheme = applyTheme;
+
+    })();
+  </script>
   <script type="module" src="/src/main.js"></script>
-  <script type="module" src="/src/products.js"></script>
 </body>
 
 </html>
