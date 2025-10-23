@@ -1,3 +1,4 @@
+import { clearContactSkeletons, showContactSkeletons } from "./skeletons";
 import { showToast } from "./toast";
 
 const CONTACTS_CACHE_KEY = "contacts_json_cache";
@@ -5,6 +6,12 @@ const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
 const CONTACTS_CDN_URL = "https://res.cloudinary.com/dxjjr0dte/raw/upload/tea-site-data/contacts.json";
 
 export async function loadContacts() {
+  const listContainer = document.querySelector('.contact__info__items');
+  const footerContactContainer = document.querySelector('.footer__contact__items');
+  const headerSocials = document.querySelector('.header__socials');
+  const mobileNavSocials = document.querySelector('.mobile-nav__socials');
+
+
   try {
     const cached = localStorage.getItem(CONTACTS_CACHE_KEY);
     const now = Date.now();
@@ -18,8 +25,13 @@ export async function loadContacts() {
       }
     }
 
+    showContactSkeletons(listContainer, footerContactContainer, headerSocials, mobileNavSocials, 6);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000); // 8s timeout
+
     console.log("Fetching fresh contacts.json from CDN...");
-    const response = await fetch(CONTACTS_CDN_URL, { cache: "no-cache" });
+    const response = await fetch(CONTACTS_CDN_URL, { cache: "no-cache", signal: controller.signal });
+    clearTimeout(timeout);
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     const contacts = await response.json();
 
@@ -29,11 +41,20 @@ export async function loadContacts() {
       data: contacts
     }));
 
+    clearContactSkeletons(listContainer);
+
     generateContacts(contacts);
     return;
 
   } catch (err) {
     console.error("Failed to load contacts:", err);
+
+    if (listContainer) {
+      listContainer.innerHTML = '<div class="load-error">خطا در بارگذاری راه های ارتباطی. <button id="retry-contacts" class="custom-btn-1">تلاش مجدد</button></div>';
+      document.getElementById('retry-contacts')?.addEventListener('click', () => loadContacts());
+    }
+
+    showToast({ title: "خطا در اتصال", message: "بارگذاری راه های ارتباطی ناموفق بود.", type: 'error', duration: 5000 });
   }
 }
 
@@ -49,6 +70,12 @@ export function generateContacts(contacts) {
   const socialsFooterContainer = document.querySelector('.footer__social__items');
   const socialsHeaderContainer = document.querySelector('.header__socials');
   const socialsMobileNavContainer = document.querySelector('.mobile-nav__socials');
+
+  if (contactItemsContainer) contactItemsContainer.textContent = '';
+  if (contactItemsFooterContainer) contactItemsFooterContainer.textContent = '';
+  if (socialsFooterContainer) socialsFooterContainer.textContent = '';
+  if (socialsHeaderContainer) socialsHeaderContainer.textContent = '';
+  if (socialsMobileNavContainer) socialsMobileNavContainer.textContent = '';
 
   contacts.forEach((contact) => {
     if (!contact.visible) return;

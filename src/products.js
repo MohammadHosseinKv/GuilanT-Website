@@ -1,5 +1,7 @@
 import { productModalSlider, productSlider } from "./slider";
 import { lockScroll, unlockScroll } from "./main";
+import { clearProductSkeletons, showProductSkeletons } from "./skeletons";
+import { showToast } from "./toast";
 
 const PRODUCTS_CACHE_KEY = "products_json_cache";
 const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
@@ -33,6 +35,7 @@ const productSingleImageSelector = '.single-image';
 // Module-scoped products array (populated by loadProducts)
 
 export async function loadProducts() {
+  const productsContainer = document.querySelector('#products .product__items');
   try {
     const cached = localStorage.getItem(PRODUCTS_CACHE_KEY);
     const now = Date.now();
@@ -46,8 +49,14 @@ export async function loadProducts() {
       }
     }
 
+    if (productsContainer) showProductSkeletons(productsContainer, 6);
+
     console.log("Fetching fresh products.json from CDN...");
-    const response = await fetch(PRODUCTS_CDN_URL, { cache: "no-cache" });
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000); // 10s timeout
+    const response = await fetch(PRODUCTS_CDN_URL, { cache: "no-cache", signal: controller.signal });
+    clearTimeout(timeout)
+      ;
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     const products = await response.json();
 
@@ -57,11 +66,19 @@ export async function loadProducts() {
       data: products
     }));
 
+    if (productsContainer) clearProductSkeletons(productsContainer);
     generateProducts(products);
     return;
 
   } catch (err) {
     console.error("Failed to load products:", err);
+    if (productsContainer) {
+      productsContainer.innerHTML = `<div class="load-error">مشکلی در بارگذاری محصولات به وجود آمد. <button id="retry-products" class="custom-btn-1">تلاش مجدد</button></div>`;
+      const retryBtn = document.getElementById('retry-products');
+      retryBtn?.addEventListener('click', () => loadProducts());
+      showToast({ title: "خطا در اتصال", message: "بارگذاری اطلاعات محصولات ناموفق بود.", type: 'error', duration: 5000 });
+
+    }
   }
 }
 
@@ -383,7 +400,7 @@ export function initModalBehavior() {
     modal.setAttribute('inert', '');
   } else {
     modal.setAttribute('aria-hidden', 'false');
-    if(modal.hasAttribute('inert')) modal.removeAttribute('inert');
+    if (modal.hasAttribute('inert')) modal.removeAttribute('inert');
   }
 
 }
