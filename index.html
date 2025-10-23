@@ -4,6 +4,118 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="#" />
+  <title>tea-shop-site</title>
+  <style>
+    /* --- SKELETON UTILS --- */
+    .skeleton {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.04) 50%, rgba(0, 0, 0, 0.06) 100%);
+      border-radius: 4px;
+    }
+
+    /* shimmer animation */
+    @keyframes skeleton-shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .skeleton::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 150%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+      transform: translateX(0);
+      animation: skeleton-shimmer 1.2s linear infinite;
+      will-change: transform;
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .skeleton::after {
+        animation: none;
+        background: transparent;
+      }
+    }
+
+    /* textual skeletons */
+    .skeleton-text {
+      height: 12px;
+      margin-bottom: 8px;
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    /* different widths to look natural */
+    .skeleton-text.short {
+      width: 40%;
+    }
+
+    .skeleton-text.mid {
+      width: 65%;
+    }
+
+    .skeleton-text.long {
+      width: 95%;
+    }
+
+    /* image skeleton */
+    .skeleton-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      /* match your card image aspect */
+      border-radius: 6px;
+    }
+
+    /* product card container - match your .product__item sizing */
+    .product__item.skeleton {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    /* small helper for inline icon skeletons used in header/footer */
+    .skeleton-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* layout placeholders to match final markup structure */
+    .product__item__info .skeleton-row {
+      margin-bottom: 6px;
+    }
+
+    /* Accessibility visually-hidden for status live text */
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+      border: 0;
+      padding: 0;
+      margin: -1px;
+    }
+
+    .load-error{
+      color: var(--dark);
+      text-align: center;
+      grid-column: 2;
+      
+    }
+  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
@@ -17,7 +129,6 @@
   <link rel="stylesheet" href="/styles/components/modal.css">
   <link rel="stylesheet" href="/styles/utils.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tea-shop-site</title>
 </head>
 
 <body>
@@ -637,7 +748,7 @@
   <footer class="footer">
     <div class="footer__grid">
       <div class="footer__logo">
-        <img src="/logo.png" alt="لوگو">
+        <img src="/logo.png" alt="لوگو" width="200">
         <p>تولیدکننده و توزیع‌کننده چای‌ های اصیل و باکیفیت برای سوپرمارکت‌ها و هایپرمارکت‌ها</p>
         <div class="footer__subtitle">
           <p>هر فنجان چای ما، داستانی از <strong>اصالت</strong>، <strong>کیفیت</strong> و <strong>اعتماد</strong> است.
