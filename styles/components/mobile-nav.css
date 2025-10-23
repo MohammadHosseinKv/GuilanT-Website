@@ -1,0 +1,119 @@
+.mobile-nav__menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    height: 100dvh;
+    width: min(15em, 100%);
+    z-index: 150;
+    border-right: 2px solid rgba(255, 255, 255, 0.4);
+    background-color: hsl(from var(--tea-green) h s calc(l - 5));
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: left .3s ease-out;
+}
+
+.mobile-nav__menu.show {
+    left: 0;
+}
+
+.mobile-nav__menu.show ~ .mobile-nav__overlay {
+    display: block;
+}
+
+.mobile-nav__menu nav {
+    width: 100%;
+    margin-top: 3.5rem;
+}
+
+.mobile-nav__menu ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style: none;
+}
+
+.mobile-nav__link {
+    text-decoration: none;
+    display: flex;
+    color: #fff;
+    padding: 1em 2em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    transition: background-color .3s ease, border .3s linear, color .3s;
+
+}
+
+.mobile-nav__link:hover {
+    color: var(--tea-green);
+    background-color: hsl(from var(--tea-gold) h s calc(l + 10));
+}
+
+.mobile-nav__link.active {
+    border-right: 5px solid var(--tea-gold);
+}
+
+.mobile-nav__socials {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav__social__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 0.75rem;
+    background: rgb(255 255 255 / 10%);
+    width: 2.2rem;
+    height: 2.2rem;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.mobile-nav__social__item:hover {
+    color: var(--tea-gold);
+    border: 1px solid rgba(238, 189, 43, 0.6);
+}
+
+.close-sidebar {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s, transform .5s;
+    padding: 0.5em;
+    z-index: 1;
+    color: #fff;
+    cursor: pointer;
+}
+
+.close-sidebar:hover {
+    background-color: rgb(0 0 0 / 20%);
+    transform: scale(1.05) rotate(180deg);
+}
+
+.close-sidebar:hover>svg {
+    color: red;
+}
+
+.mobile-nav__overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    background-color: rgba(0,0,0,.5);
+    z-index: 140;
+}
+
+
+/* @media (min-width: 768px) {} */
