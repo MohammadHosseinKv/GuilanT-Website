@@ -90,7 +90,7 @@ export function generateContacts(contacts) {
     contactItem.rel = 'noopener noreferrer';
     contactItem.innerHTML = `
       <div class="contact__info__item__info"> 
-        <div class="contact__info__item__img">${contact.svg}</div>
+        <div aria-label="${contact.type}-icon" class="contact__info__item__img">${contact.svg}</div>
                 <div class="contact__info__item__desc">
                   <h4 class="contact__info__item__desc__title">${contact.name}</h4>
                   <p class="contact__info__item__desc__subtitle" dir="${contact.valueDir}">${contact.value}</p>

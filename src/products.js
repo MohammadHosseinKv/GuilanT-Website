@@ -131,7 +131,7 @@ export function generateProducts(products) {
                 <h3 class="product__item__info__title">${product.name}</h3>
                 <p class="product__item__info__description">${product.description}</p>
                 <div class="product__item__info__characteristics">
-                  <div class="product__item__info__weight">
+                  <div aria-label="package-icon" class="product__item__info__weight">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path
@@ -149,7 +149,7 @@ export function generateProducts(products) {
                   <span class="product__item__info__price__unit">تومان</span>
                   </div>
                 </div>
-                <button class="product__item__info__cta-details custom-btn-1" type="button" data-id="${product.id}" data-title="${product.name}">
+                <button aria-label="eye-icon, show product details, open product modal" class="product__item__info__cta-details custom-btn-1" type="button" data-id="${product.id}" data-title="${product.name}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path
@@ -257,7 +257,7 @@ export function openProductModal(product) {
               ${product.features.length == 0 ?
       'برای این محصول ویژگی ای ثبت نشده است.' :
       product.features.map(feature => `
-                              <div class="modal__product-feature">
+                              <div aria-label="circle-checkmark-icon, product feature" class="modal__product-feature">
                               ${featsSvg}
                               ${feature}
                               </div>
@@ -266,7 +266,7 @@ export function openProductModal(product) {
             </div>
           </div>
           <div class="modal__price-cta">
-            <a href="#contact" data-modal-close class="modal__product-contact custom-btn-1">
+            <a aria-label="tel-icon, contact to order" href="#contact" data-modal-close class="modal__product-contact custom-btn-1">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path
@@ -281,6 +281,7 @@ export function openProductModal(product) {
         `;
 
   lockScroll();
+  modalContent.setAttribute('aria-label', `${product.name} modal`);
   modalContent.appendChild(productModalCloseBtn);
   modalContent.appendChild(productModalImageSection);
   new productModalSlider(productModalImageSection.querySelectorAll(productModalSlideSelector)
