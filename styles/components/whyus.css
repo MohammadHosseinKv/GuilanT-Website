@@ -5,7 +5,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    background: rgb(248 248 246 / 70%);
+    background: var(--section-bg);
     border-radius: 2rem;
     padding: 2rem;
 }
@@ -20,7 +20,7 @@
 .whyus__description__subtitle {
     color: var(--dark);
     font-size: var(--size-lg);
-    max-width: 50ch;
+    max-width: 70ch;
 }
 
 .whyus__items {
@@ -36,7 +36,7 @@
     border-radius: 1rem;
     padding: 2rem;
     box-shadow: var(--shadow-strong);
-    background: var(--gradient-card);
+    background: var(--background);
     transition: 0.3s;
 }
 
@@ -79,7 +79,6 @@
     color: var(--dark);
     max-width: 50ch;
 }
-
 
 
 /* xs */
