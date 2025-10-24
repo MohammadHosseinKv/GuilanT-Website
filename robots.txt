@@ -7,8 +7,8 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+Sitemap: https://guilant.ir/sitemap.xml
+Host: https://guilant.ir
