@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گیلان تی - صفحه موردنظر شما پیدا نشد</title>
+    <link rel="preload" href="./tea-plantation-bg.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="/styles/modern-normalize.css" as="style">
+    <link rel="preload" href="/styles/style.css" as="style">
+    <link rel="preload" href="/styles/utils.css" as="style">
+    <link rel="stylesheet" href="/styles/utils.css">
+    <link rel="stylesheet" href="/styles/modern-normalize.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@33.003/misc/Farsi-Digits/Vazirmatn-FD-font-face.css"
+        rel="stylesheet">
+    <style>
+        body {
+            background-image: var(--bg-cover), var(--bg-url);
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: grid;
+            place-items: center;
+        }
+
+        .notfound-section {
+            display: grid;
+            padding: 3rem;
+            height: fit-content;
+            color: var(--dark);
+            background-color: var(--section-bg);
+            place-items: center;
+            gap: 1rem;
+            border-radius: 1rem;
+        }
+
+        .notfound-section > h3 {
+            color: hsl(from var(--tea-gold) h s calc(l - 10));
+        }
+
+        .notfound-section > p {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container notfound-section">
+        <h3>صفحه موردنظر شما پیدا نشد.</h3>
+        <p>برای انتقال به صفحه اصلی روی دکمه زیر کلیک کنید.</p>
+        <a class="custom-btn-1" href="/">انتقال به صفحه اصلی</a>
+    </div>
+
+    <script defer>
+        (function () {
+            const html = document.documentElement;
+
+            function applyTheme(theme) {
+                const isDark = theme === 'dark';
+
+                html.setAttribute('data-theme', theme);
+            }
+
+            // load saved theme or prefered
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initial = saved || (prefersDark ? 'dark' : 'light');
+            applyTheme(initial);
+
+            window.setTheme = applyTheme;
+
+        })();
+    </script>
+</body>
+
+</html>
