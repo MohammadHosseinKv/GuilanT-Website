@@ -16,6 +16,7 @@ import { generateContacts, loadContacts, refreshContacts } from './contacts';
 import { initializeForm } from './form';
 import { initializeMobileNavbar } from './mobileNav';
 import { lazyloading } from './lazy-loading';
+import { initializeEntranceAnimation } from './animations';
 
 const scrollToTopBtn = document.querySelector('.scroll-top');
 
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadProducts();
   await loadContacts();
   lazyloading();
+  initializeEntranceAnimation();
   initializeForm();
 });
 
