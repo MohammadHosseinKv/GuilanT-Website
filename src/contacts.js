@@ -84,7 +84,7 @@ export function generateContacts(contacts) {
     const contactItem = document.createElement('a');
     contactItem.className = 'contact__info__item';
     contactItem.setAttribute('aria-label', contact.name + ' ' + contact.value);
-    contactItem.href = linkHref || "javascript:void(0)";
+    contactItem.href = linkHref || "#";
     // open external links in new tab but leave tel/mailto to default behavior
     if (isExternal) contactItem.target = '_blank';
     contactItem.rel = 'noopener noreferrer';
@@ -155,7 +155,7 @@ function buildContactAnchor(contact, classList, href, isExternal) {
   const ae = document.createElement('a');
   ae.classList = classList;
   ae.setAttribute('aria-label', contact.name + ' ' + contact.value);
-  ae.href = href || "javascript:void(0)";
+  ae.href = href || "#";
   // open external links in new tab but leave tel/mailto to default behavior
   if (isExternal) ae.target = '_blank';
   ae.rel = 'noopener noreferrer';
