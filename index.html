@@ -3,10 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="توزیع‌‌کننده انواع چای‌ های اصیل ایرانی">
+  <meta name="description" content="گیلان تی - توزیع‌‌کننده انواع چای‌ های اصیل ایرانی برای سوپرمارکت‌ ها و هایپرمارکت‌ ها، با چای گیلان هر جرعه سفریست به طبیعت بکر گیلان، محصولات باکیفیت، ارسال سریع">
   <base href="/">
-  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@33.003/misc/Farsi-Digits/Vazirmatn-FD-font-face.css"
-    rel="preload" as="font" crossorigin>
+  <meta name="robots" content="index, follow">
   <link rel="preload" href="./logo.png" as="image">
   <link rel="preload" href="./tea-plantation-bg.jpg" as="image" fetchpriority="high">
   <link rel="dns-prefetch" href="https://res.cloudinary.com">
@@ -16,11 +15,12 @@
   <link rel="preload" href="/styles/components/header.css" as="style">
   <link rel="preload" href="/styles/components/hero.css" as="style">
   <link rel="preload" href="/styles/utils.css" as="style">
+  <link rel="preload" href="/fonts/Vazirmatn-FD-font-face.css" as="style">
   <link rel="preload" href="/src/main.js" as="script">
 
   <meta property="og:url" content="https://guilant.ir">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="tea-shop-site">
+  <meta property="og:title" content="گیلان تی">
   <meta property="og:description" content="توزیع‌‌کننده انواع چای‌ های اصیل ایرانی">
   <meta property="og:image"
     content="https://res.cloudinary.com/dxjjr0dte/image/upload/v1761258601/guilant-bio_gx8vlv.jpg">
@@ -28,14 +28,25 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="guilant.ir">
   <meta property="twitter:url" content="https://guilant.ir">
-  <meta name="twitter:title" content="tea-shop-site">
-  <meta name="twitter:description" content="توزیع‌‌کننده انواع چای‌ های اصیل ایرانی">
+  <meta name="twitter:title" content="گیلان تی">
+  <meta name="twitter:description" content="توزیع‌‌کننده انواع چای‌ های اصیل ایرانی برای سوپرمارکت‌ ها و هایپرمارکت‌ ها">
   <meta name="twitter:image"
     content="https://res.cloudinary.com/dxjjr0dte/image/upload/v1761258601/guilant-bio_gx8vlv.jpg">
   <link rel="icon" type="image/svg+xml" href="#" />
-  <title>tea-shop-site</title>
+  <title>گیلان تی - توزیع‌‌کننده انواع چای‌ های اصیل ایرانی برای سوپرمارکت‌ ها و هایپرمارکت‌ ها</title>
   <style>
-    /* --- SKELETON UTILS --- */
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
     .skeleton {
       position: relative;
       overflow: hidden;
@@ -43,7 +54,6 @@
       border-radius: 4px;
     }
 
-    /* shimmer animation */
     @keyframes skeleton-shimmer {
       0% {
         transform: translateX(-100%);
@@ -67,7 +77,6 @@
       will-change: transform;
     }
 
-    /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .skeleton::after {
         animation: none;
@@ -75,7 +84,6 @@
       }
     }
 
-    /* textual skeletons */
     .skeleton-text {
       height: 12px;
       margin-bottom: 8px;
@@ -83,7 +91,6 @@
       border-radius: 6px;
     }
 
-    /* different widths to look natural */
     .skeleton-text.short {
       width: 40%;
     }
@@ -96,15 +103,14 @@
       width: 95%;
     }
 
-    /* image skeleton */
     .skeleton-img {
       width: 100%;
       aspect-ratio: 4/3;
-      /* match your card image aspect */
+      /* match card image aspect */
       border-radius: 6px;
     }
 
-    /* product card container - match your .product__item sizing */
+    /* product card container - match .product__item sizing */
     .product__item.skeleton {
       display: grid;
       grid-template-columns: 1fr;
@@ -112,7 +118,6 @@
       align-items: start;
     }
 
-    /* small helper for inline icon skeletons used in header/footer */
     .skeleton-circle {
       width: 36px;
       height: 36px;
@@ -120,7 +125,6 @@
       display: inline-block;
     }
 
-    /* layout placeholders to match final markup structure */
     .product__item__info .skeleton-row {
       margin-bottom: 6px;
     }
@@ -153,11 +157,6 @@
       filter: blur(40px) grayscale(100%);
     }
   </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@33.003/misc/Farsi-Digits/Vazirmatn-FD-font-face.css"
-    rel="stylesheet">
   <link rel="stylesheet" href="/styles/modern-normalize.css">
   <link rel="stylesheet" href="/styles/style.css">
   <link rel="stylesheet" href="/styles/components/header.css">
@@ -165,6 +164,10 @@
   <link rel="stylesheet" href="/styles/components/mobile-nav.css">
   <link rel="stylesheet" href="/styles/components/modal.css">
   <link rel="stylesheet" href="/styles/utils.css">
+  <link rel="stylesheet" href="/fonts/Vazirmatn-FD-font-face.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
