@@ -32,8 +32,148 @@ const productModalNextBtnSelector = '.modal__slides-next';
 
 const productSingleImageSelector = '.single-image';
 
-// Module-scoped products array (populated by loadProducts)
+/* ---------- SEO helpers (minimal, uses only existing product fields) ---------- */
 
+/** Build small keyword phrase for a product (simple, deduped) */
+function buildKeywordsForProduct(product, max = 12) {
+  const set = new Set();
+  const push = (v) => {
+    if (!v) return;
+    // v may be string or array
+    if (Array.isArray(v)) v.forEach(item => push(item));
+    else {
+      v.toString().split(/\s+/).forEach(tok => {
+        const t = tok.toLowerCase().replace(/[^\u0600-\u06FF\w\-]+/g, '').trim(); // keep Persian/latin/num/dash
+        if (t && t.length > 1) set.add(t);
+      });
+    }
+  };
+
+  push(product.name);
+  push(product.category);
+  push(product.features);
+  push(product.characteristics);
+  push(product.weight);
+  // price is numeric — include as string if present
+  if (product.price != null) set.add(String(product.price));
+  return Array.from(set).slice(0, max).join(', ');
+}
+
+/** Update page-level meta[name="keywords"] with aggregated product keywords */
+function updateGlobalKeywords(products) {
+  try {
+    const agg = new Set();
+    (products || []).forEach(p => {
+      if (!p || !p.visible) return;
+      buildKeywordsForProduct(p, 20).split(',').map(s => s.trim()).forEach(s => { if (s) agg.add(s); });
+    });
+    const kws = Array.from(agg).slice(0, 50).join(', ');
+    let meta = document.head.querySelector('meta[name="keywords"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'keywords');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', kws);
+  } catch (e) { console.warn('updateGlobalKeywords error', e); }
+}
+
+/** Attach a minimal, hidden microdata block into each product card (only existing fields) */
+function attachStructuredDataToCard(product, cardEl) {
+  if (!cardEl || !product) return;
+  if (cardEl.querySelector('.sr-only.product-structured')) return; // already attached
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'sr-only product-structured';
+  wrapper.setAttribute('itemscope', '');
+  wrapper.setAttribute('itemtype', 'https://schema.org/Product');
+
+  const name = document.createElement('span');
+  name.setAttribute('itemprop', 'name');
+  name.textContent = product.name || '';
+  wrapper.appendChild(name);
+
+  const desc = document.createElement('span');
+  desc.setAttribute('itemprop', 'description');
+  desc.textContent = product.description || '';
+  wrapper.appendChild(desc);
+
+  const cat = document.createElement('span');
+  cat.setAttribute('itemprop', 'category');
+  cat.textContent = product.category || '';
+  wrapper.appendChild(cat);
+
+  if (product.price != null) {
+    const offers = document.createElement('div');
+    offers.setAttribute('itemprop', 'offers');
+    offers.setAttribute('itemscope', '');
+    offers.setAttribute('itemtype', 'https://schema.org/Offer');
+
+    const price = document.createElement('meta');
+    price.setAttribute('itemprop', 'price');
+    price.content = String(product.price);
+    offers.appendChild(price);
+
+    // currency not present in your JSON — use IRR as fallback (no visible effect)
+    const currency = document.createElement('meta');
+    currency.setAttribute('itemprop', 'priceCurrency');
+    currency.content = 'IRR';
+    offers.appendChild(currency);
+
+    wrapper.appendChild(offers);
+  }
+
+  // features and characteristics: concatenate into readable text
+  const extra = [];
+  if (Array.isArray(product.features) && product.features.length) extra.push(`ویژگی‌ها: ${product.features.join(', ')}`);
+  if (product.characteristics) {
+    if (Array.isArray(product.characteristics) && product.characteristics.length) extra.push(`مشخصات: ${product.characteristics.join(', ')}`);
+    else if (typeof product.characteristics === 'string' && product.characteristics.trim()) extra.push(`مشخصات: ${product.characteristics}`);
+  }
+  if (extra.length) {
+    const more = document.createElement('span');
+    more.setAttribute('itemprop', 'additionalProperty');
+    more.textContent = extra.join(' • ');
+    wrapper.appendChild(more);
+  }
+
+  cardEl.appendChild(wrapper);
+}
+
+/** Build one JSON-LD script for all visible products (minimal fields only) and inject into <head> */
+function injectJsonLdForAllProducts(products) {
+  try {
+    const graph = (products || [])
+      .filter(p => p && p.visible)
+      .map(p => {
+        const obj = {
+          "@type": "Product",
+          "name": p.name,
+          "description": p.description || '',
+          "image": Array.isArray(p.image) ? p.image : (p.image ? [p.image] : []),
+          "category": p.category || '',
+        };
+        if (p.price != null) obj.offers = { "@type": "Offer", "price": String(p.price), "priceCurrency": "IRR" };
+        return obj;
+      });
+
+    if (!graph.length) return;
+    // create or replace single script with id 'ld-products'
+    let script = document.head.querySelector('#ld-products');
+    const payload = { "@context": "https://schema.org", "@graph": graph };
+    if (!script) {
+      script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.id = 'ld-products';
+      script.textContent = JSON.stringify(payload, null, 2);
+      document.head.appendChild(script);
+    } else {
+      script.textContent = JSON.stringify(payload, null, 2);
+    }
+  } catch (e) { console.warn('injectJsonLdForAllProducts error', e); }
+}
+
+/** Load Products from CDN product json and cache data */
 export async function loadProducts() {
   const productsContainer = document.querySelector('#products .product__items');
   try {
@@ -176,7 +316,14 @@ export function generateProducts(products) {
       ev.preventDefault();
       openProductModal(product);
     });
+
+    attachStructuredDataToCard(product, productCard);
   });
+
+  // once: update keywords meta and inject one JSON-LD block for all visible products
+  updateGlobalKeywords(products);
+  injectJsonLdForAllProducts(products);
+
 }
 
 export function openProductModal(product) {
@@ -192,7 +339,7 @@ export function openProductModal(product) {
   const productModalCloseBtn = document.createElement('button');
   productModalCloseBtn.classList = 'custom-modal__close';
   productModalCloseBtn.type = 'button';
-  productModalCloseBtn.ariaLabel = 'Close dialog';
+  productModalCloseBtn.setAttribute('aria-label', 'Close dialog');
   productModalCloseBtn.setAttribute('data-modal-close', '');
   productModalCloseBtn.innerHTML = `
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
