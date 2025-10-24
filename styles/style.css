@@ -75,7 +75,7 @@ html {
 }
 
 body {
-    font-family: "Vazirmatn FD", "Vazirmatn", system-ui, sans-serif;
+    font-family: "Vazirmatn FD", system-ui, sans-serif;
     color: var(--light);
     overflow-x: hidden;
 }
