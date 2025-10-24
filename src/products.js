@@ -67,7 +67,9 @@ export async function loadProducts() {
     }));
 
     if (productsContainer) clearProductSkeletons(productsContainer);
+
     generateProducts(products);
+
     return;
 
   } catch (err) {
@@ -119,7 +121,7 @@ export function generateProducts(products) {
                   <div class="product-slides-container">
                     <div class="product-slide-track">
                       ${product.image.map(img => `
-                      <img class="product-slide" src="${img}" alt="${product.name}">
+                      <img class="product-slide lazy-loading" loading='lazy' src="" data-src="${img}" alt="${product.name}">
                       `).join('')}
                     </div>
                   </div>
@@ -216,7 +218,7 @@ export function openProductModal(product) {
           <div class="modal__slides-container">
             <div class="modal__slide-track">
               ${product.image.map(img => `
-                    <img class="modal__slide" src="${img}" alt="${product.name}">
+                    <img class="modal__slide" loading='lazy' src="${img}" alt="${product.name}">
                 `).join('')}
             </div>
             <button class="modal__slides-prev"><span>&#10094;</span></button>
