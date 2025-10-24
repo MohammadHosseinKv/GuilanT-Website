@@ -1,15 +1,15 @@
 // vite.config.js
 import { defineConfig } from 'vite'
-import { multi } from 'vite-plugin-multi-pages';
+import { resolve } from 'path';
 
 export default defineConfig({
   base: './',
-  plugins: [
-    multi({
-      pages: {
-        index: 'index.html',
-        404: '404.html',
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        notfound: resolve(__dirname, '404.html'),
       }
-    })
-  ]
+    }
+  }
 });
