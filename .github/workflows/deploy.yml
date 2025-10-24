@@ -7,16 +7,44 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo (full history for lastmod)
+        uses: actions/checkout@v4
+        with: 
+          fetch-depth: 0
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm ci
-      - run: npm run build
-      - name: Deploy
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (Vite)
+        run: npm run build
+
+      - name: Generate sitemap (write into dist/)
+        id: sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          # path to the built site folder
+          path-to-root: dist
+          base-url-path: https://guilant.ir/
+          # remove .html from URLs in sitemap
+          drop-html-extension: true
+          # exclude the 404 page
+          exclude-paths: /404.html
+      
+      - name: Debug - show sitemap
+        run: |
+          echo "---- dist files ----"
+          ls -la dist | sed -n '1,200p'
+          echo "---- dist/sitemap.xml ----"
+          sed -n '1,200p' dist/sitemap.xml || true
+
+      - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          cname: 'GuilanT.iR'
+          cname: 'guilant.ir'
