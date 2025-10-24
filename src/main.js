@@ -15,16 +15,21 @@ import { generateProducts, loadProducts, refreshProducts } from './products';
 import { generateContacts, loadContacts, refreshContacts } from './contacts';
 import { initializeForm } from './form';
 import { initializeMobileNavbar } from './mobileNav';
+import { lazyloading } from './lazy-loading';
 
 const scrollToTopBtn = document.querySelector('.scroll-top');
+
+
 
 document.addEventListener('DOMContentLoaded', async () => {
   initializeScrollToTop();
   initializeMobileNavbar();
   await loadProducts();
   await loadContacts();
+  lazyloading();
   initializeForm();
 });
+
 
 // throttle scroll with rAF for performance
 let ticking = false;
