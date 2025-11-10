@@ -272,7 +272,6 @@
     vertical-align: middle;
     width: 1.5rem;
     height: 1.5rem;
-    animation: fadeInOut 2s infinite;
 }
 
 .about__grid__prospect:has(.about__grid__prospect__title:hover) .about__grid__prospect__title,
